@@ -45,8 +45,15 @@
 ## Screenshots
 
 - HomePage
-- <img src="screenshots/home_page.png" width="200">
+  
+  <img src="screenshots/home_page.png" width="200">
+- LoginPage
+  
+  <img src="screenshots/login_page.png" width="200">
 
+- WorkshopPage
+  
+  <img src="screenshots/workshop_page.png" width="200">
 ## 协作开发
 
 - fork https://github.com/mushroomcloud-cc/member-app.git
