@@ -10,7 +10,7 @@ class _WorkshopDetailPageState extends State<WorkshopDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-       child: null,
+      child: null,
     );
   }
 }

@@ -9,18 +9,20 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
-       appBar: AppBar(
+    return Scaffold(
+      appBar: AppBar(
         elevation: 0,
         backgroundColor: Theme.of(context).canvasColor,
         iconTheme: IconThemeData(
-            color: Colors.grey, //change your color here
-          ),
+          color: Colors.grey, //change your color here
+        ),
       ),
       body: Center(
         child: Column(
           children: <Widget>[
-            SizedBox(height: 16,),
+            SizedBox(
+              height: 16,
+            ),
             Row(
               children: <Widget>[
                 Hero(
@@ -31,9 +33,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: 8.0),
-                    child: Text("用户注册",style: TextStyle(letterSpacing: 8.0),),
-                  )
+                  padding: EdgeInsets.only(top: 8.0),
+                  child: Text(
+                    "用户注册",
+                    style: TextStyle(letterSpacing: 8.0),
+                  ),
+                )
               ],
             )
           ],

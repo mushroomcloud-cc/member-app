@@ -60,7 +60,7 @@ class _WorkshopPageState extends State<WorkshopPage> {
                 icon: Hero(
                   tag: 'user-avatar',
                   child: CircleAvatar(
-                    backgroundImage:AssetImage(defaultUser.avatar),
+                    backgroundImage: AssetImage(defaultUser.avatar),
                   ),
                 ),
               ),
@@ -71,15 +71,13 @@ class _WorkshopPageState extends State<WorkshopPage> {
           child: Padding(
             padding: const EdgeInsets.all(2),
             child: ListView(
-              padding: EdgeInsets.only(left: 16,right: 16),
+              padding: EdgeInsets.only(left: 16, right: 16),
               children: <Widget>[
                 ...workshopItems.map((Workshop item) {
                   return Card(
-                    
                     elevation: 5,
                     margin: const EdgeInsets.only(top: 8.0),
                     child: Column(
-                      
                       children: <Widget>[
                         Container(
                           child: CachedNetworkImage(
@@ -126,13 +124,13 @@ class _WorkshopPageState extends State<WorkshopPage> {
 
   void _qrcodeScan() async {
     String qrcodeResult = await new QRCodeReader()
-               .setAutoFocusIntervalInMs(200) // default 5000
-               .setForceAutoFocus(true) // default false
-               .setTorchEnabled(true) // default false
-               .setHandlePermissions(true) // default true
-               .setExecuteAfterPermissionGranted(true) // default true
-               //.setFrontCamera(false) // default false
-               .scan();
+        .setAutoFocusIntervalInMs(200) // default 5000
+        .setForceAutoFocus(true) // default false
+        .setTorchEnabled(true) // default false
+        .setHandlePermissions(true) // default true
+        .setExecuteAfterPermissionGranted(true) // default true
+        //.setFrontCamera(false) // default false
+        .scan();
     print('scan result:$qrcodeResult');
   }
 }

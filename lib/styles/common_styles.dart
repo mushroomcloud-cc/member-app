@@ -1,3 +1,3 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-final buttonTextStyle =  TextStyle(letterSpacing: 28.0);
+final buttonTextStyle = TextStyle(letterSpacing: 28.0);

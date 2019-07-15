@@ -122,7 +122,9 @@ class _LoginPageState extends State<LoginPage> {
                                 _loading = true;
                               });
 
-                              _service.login(loginUser).then((User _user) async {
+                              _service
+                                  .login(loginUser)
+                                  .then((User _user) async {
                                 print('login: ${_user.token}');
                                 await _saveUser(_user);
                                 Navigator.of(context)
@@ -132,9 +134,9 @@ class _LoginPageState extends State<LoginPage> {
 
                                 Fluttertoast.showToast(msg: '错误: $err');
                               }).whenComplete(() {
-                                  setState(() {
-                                    _loading = false;
-                                  });
+                                setState(() {
+                                  _loading = false;
+                                });
                               });
                             },
                             minWidth: MediaQuery.of(context).size.width,
@@ -147,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ],
                   ),
-                  if(_loading)
+                  if (_loading)
                     Center(
                       child: SpinKitThreeBounce(
                         color: Colors.grey,
@@ -162,6 +164,4 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-
-
 }

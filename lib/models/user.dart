@@ -1,5 +1,5 @@
 class User {
-  User({this.nickname,this.avatar,this.token});
+  User({this.nickname, this.avatar, this.token});
   String nickname;
   String avatar;
   String token;
@@ -8,10 +8,9 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      nickname: json['nickname']??json['username'],
-      avatar: json['nickname'],
-      token: json['token']
-    );
+        nickname: json['nickname'] ?? json['username'],
+        avatar: json['nickname'],
+        token: json['token']);
   }
   Map toJson() {
     return {
@@ -23,7 +22,5 @@ class User {
   }
 }
 
-final defaultUser = User(
-  nickname: '创客 Zero',
-  avatar: 'assets/images/avatar.jpg'
-);
+final defaultUser =
+    User(nickname: '创客 Zero', avatar: 'assets/images/avatar.jpg');

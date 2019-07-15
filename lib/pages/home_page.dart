@@ -14,8 +14,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with AfterLayoutMixin<HomePage>{
-
+class _HomePageState extends State<HomePage> with AfterLayoutMixin<HomePage> {
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   bool _loading = true;
 
@@ -45,12 +44,10 @@ class _HomePageState extends State<HomePage> with AfterLayoutMixin<HomePage>{
                 ),
               ),
               SizedBox(
-                        height: 72,
-                      ),
-              if(_loading) 
-                _buildLoadingWidget(context),
-              if(!_loading)
-                _buildButtonColumn(context),
+                height: 72,
+              ),
+              if (_loading) _buildLoadingWidget(context),
+              if (!_loading) _buildButtonColumn(context),
             ],
           ),
         ),
@@ -59,16 +56,15 @@ class _HomePageState extends State<HomePage> with AfterLayoutMixin<HomePage>{
   }
 
   Widget _buildLoadingWidget(BuildContext context) {
-      return SpinKitThreeBounce(
-        color: Colors.grey,
-        size: 50,
-      );
+    return SpinKitThreeBounce(
+      color: Colors.grey,
+      size: 50,
+    );
   }
 
   Column _buildButtonColumn(BuildContext context) {
     return Column(
       children: <Widget>[
-        
         Padding(
           padding: const EdgeInsets.only(left: 60.0, right: 60.0),
           child: Material(
@@ -121,7 +117,7 @@ class _HomePageState extends State<HomePage> with AfterLayoutMixin<HomePage>{
       User _user = User.fromJson(jsonDecode(json));
       var jsonStr = jsonEncode(_user);
       print('saved user: $jsonStr');
-      if(_user != null) {
+      if (_user != null) {
         // TODO: valid token from server
         // TODO: update provider
 
@@ -130,12 +126,9 @@ class _HomePageState extends State<HomePage> with AfterLayoutMixin<HomePage>{
       }
     } catch (err) {
       print('json decode error: $err');
-
     }
     setState(() {
       _loading = false;
     });
-
-    
   }
 }

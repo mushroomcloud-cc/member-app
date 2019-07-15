@@ -28,4 +28,3 @@ class MemberApp extends StatelessWidget {
     );
   }
 }
-

@@ -1,1 +1,1 @@
-const String prefsUser ='user';
+const String prefsUser = 'user';

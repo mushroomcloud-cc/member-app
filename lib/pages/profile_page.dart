@@ -146,11 +146,10 @@ class _ProfilePageState extends State<ProfilePage> {
   void _logou() async {
     var prefs = await _prefs;
     prefs.remove(prefsUser);
-    if(Platform.isIOS) {
+    if (Platform.isIOS) {
       Navigator.pushReplacementNamed(context, '/');
     } else {
       await SystemChannels.platform.invokeMethod<void>('SystemNavigator.pop');
-
     }
   }
 }
