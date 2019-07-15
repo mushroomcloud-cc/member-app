@@ -76,7 +76,7 @@ class LoginPage extends StatelessWidget {
                       color: Colors.white,
                       child: MaterialButton(
                         onPressed: () {
-                          Navigator.pushReplacementNamed(context, '/workshop');
+                          Navigator.of(context).pushReplacementNamed('/workshop');
                         },
                         minWidth: MediaQuery.of(context).size.width,
                         child: Text(

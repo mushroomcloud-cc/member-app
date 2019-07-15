@@ -18,12 +18,12 @@ class MemberApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (_) => HomePage(),
-        '/login': (_) => LoginPage(),
-        '/register': (_) => RegisterPage(),
-        '/profile': (_) => ProfilePage(),
-        '/workshop': (_) => WorkshopPage(),
-        '/workshtop_detail': (_) => WorkshopDetailPage()
+        '/': (context) => HomePage(),
+        '/login': (context) => LoginPage(),
+        '/register': (context) => RegisterPage(),
+        '/profile': (context) => ProfilePage(),
+        '/workshop': (context) => WorkshopPage(),
+        '/workshtop_detail': (context) => WorkshopDetailPage()
       },
     );
   }
