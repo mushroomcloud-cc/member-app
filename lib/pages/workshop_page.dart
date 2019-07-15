@@ -1,6 +1,9 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
+import 'package:member_app/models/workshop.dart';
+
 
 class WorkshopPage extends StatefulWidget {
   WorkshopPage({Key key}) : super(key: key);
@@ -58,7 +61,35 @@ class _WorkshopPageState extends State<WorkshopPage> {
           ],
         ),
         body: Center(
-          child: Text('Workshop List'),
+          child: ListView(
+            children: <Widget>[
+              ...workshopItems.map((Workshop item) {
+                return Card(
+                  elevation: 5,
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        child: CachedNetworkImage(
+                          imageUrl: item.cover,
+                          placeholder: (context, url) =>
+                              new CircularProgressIndicator(),
+                          errorWidget: (context, url, error) =>
+                              new Icon(Icons.error),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: ListTile(
+                          title: Text(item.title),
+                          subtitle: Text(item.description),
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              }).toList(),
+            ],
+          ),
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.white,
