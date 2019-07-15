@@ -15,6 +15,30 @@
 - [ ] 个人中心
 - [ ] 编辑个人资料
 
+## 开发
+  
+- dependencies
+  - flutter: version 1.7 or higher 
+
+- clone
+```
+  git clone git@github.com:mushroomcloud-cc/member-app.git
+  cd member-app
+```
+
+- development
+```
+  flutter pub get
+  flutter run
+```
+- build
+```
+  # android
+  flutter build apk --release
+  # iOS
+  flutter build ios --release
+```
+
 ## 协作开发
 
 - fork https://github.com/mushroomcloud-cc/member-app.git

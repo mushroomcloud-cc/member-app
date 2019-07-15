@@ -15,13 +15,24 @@ class _HomePageState extends State<HomePage> {
          backgroundColor: Theme.of(context).canvasColor,
        ),
        body: Center(
-         child: Text("Mushroom Cloud Makerspace"),
+         child: Column(
+           children: <Widget>[
+             SizedBox(
+               height: 200,
+               child: Image.asset('assets/images/logo.png'),
+             ),
+             Padding(
+               padding: EdgeInsets.only(top: 16.0),
+               child: Text("蘑菇云创客科技"),
+             )
+           ],
+         ),
        ),
        floatingActionButton: FloatingActionButton(
          onPressed: (){
 
          },
-         child: Icon(Icons.select_all),
+         child: Icon(Icons.crop_free),
        ),
        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
        bottomNavigationBar: BottomAppBar(
