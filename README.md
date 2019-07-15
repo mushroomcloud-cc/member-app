@@ -14,6 +14,9 @@
 - [ ] 活动详情
 - [ ] 个人中心
 - [ ] 编辑个人资料
+- [ ] 艺术设计
+  - [ ] LOGO
+  - [ ] 界面设计
 
 ## 开发
   
@@ -38,6 +41,11 @@
   # iOS
   flutter build ios --release
 ```
+
+## Screenshots
+
+- HomePage
+- <img src="screenshots/home_page.png" width="200">
 
 ## 协作开发
 
