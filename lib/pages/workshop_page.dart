@@ -67,34 +67,40 @@ class _WorkshopPageState extends State<WorkshopPage> {
           ],
         ),
         body: Center(
-          child: ListView(
-            children: <Widget>[
-              ...workshopItems.map((Workshop item) {
-                return Card(
-                  elevation: 5,
-                  child: Column(
-                    children: <Widget>[
-                      Container(
-                        child: CachedNetworkImage(
-                          imageUrl: item.cover,
-                          placeholder: (context, url) =>
-                              new CircularProgressIndicator(),
-                          errorWidget: (context, url, error) =>
-                              new Icon(Icons.error),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: ListView(
+              children: <Widget>[
+                ...workshopItems.map((Workshop item) {
+                  return Card(
+                    
+                    elevation: 5,
+                    margin: const EdgeInsets.only(top: 8.0),
+                    child: Column(
+                      
+                      children: <Widget>[
+                        Container(
+                          child: CachedNetworkImage(
+                            imageUrl: item.cover,
+                            placeholder: (context, url) =>
+                                new CircularProgressIndicator(),
+                            errorWidget: (context, url, error) =>
+                                new Icon(Icons.error),
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 8.0),
-                        child: ListTile(
-                          title: Text(item.title),
-                          subtitle: Text(item.description),
-                        ),
-                      )
-                    ],
-                  ),
-                );
-              }).toList(),
-            ],
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: ListTile(
+                            title: Text(item.title),
+                            subtitle: Text(item.description),
+                          ),
+                        )
+                      ],
+                    ),
+                  );
+                }).toList(),
+              ],
+            ),
           ),
         ),
         floatingActionButton: FloatingActionButton(
