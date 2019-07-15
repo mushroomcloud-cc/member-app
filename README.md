@@ -53,7 +53,7 @@
 
 - WorkshopPage
   
-  <img src="screenshots/workshop_page.png" width="200">
+  <img src="screenshots/workshop_page.jpg" width="200">
 ## 协作开发
 
 - fork https://github.com/mushroomcloud-cc/member-app.git
