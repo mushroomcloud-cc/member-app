@@ -1,5 +1,7 @@
 PODS:
   - Flutter (1.0.0)
+  - fluttertoast (0.0.2):
+    - Flutter
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -15,6 +17,7 @@ PODS:
 
 DEPENDENCIES:
   - Flutter (from `.symlinks/flutter/ios`)
+  - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - qrcode_reader (from `.symlinks/plugins/qrcode_reader/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
@@ -27,6 +30,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   Flutter:
     :path: ".symlinks/flutter/ios"
+  fluttertoast:
+    :path: ".symlinks/plugins/fluttertoast/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
   qrcode_reader:
@@ -38,6 +43,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+  fluttertoast: b644586ef3b16f67fae9a1f8754cef6b2d6b634b
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   path_provider: f96fff6166a8867510d2c25fdcc346327cc4b259
   qrcode_reader: 09b34d43b4c08fe5b63a6e56c96789bcea7b9148

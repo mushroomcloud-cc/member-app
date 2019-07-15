@@ -69,8 +69,9 @@ class _WorkshopPageState extends State<WorkshopPage> {
         ),
         body: Center(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(2),
             child: ListView(
+              padding: EdgeInsets.only(left: 16,right: 16),
               children: <Widget>[
                 ...workshopItems.map((Workshop item) {
                   return Card(
@@ -132,6 +133,6 @@ class _WorkshopPageState extends State<WorkshopPage> {
                .setExecuteAfterPermissionGranted(true) // default true
                //.setFrontCamera(false) // default false
                .scan();
-    print('scan result:${qrcodeResult}');
+    print('scan result:$qrcodeResult');
   }
 }

@@ -1,8 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:member_app/constants/app_constants.dart';
 import 'package:member_app/models/user.dart';
 import 'package:member_app/styles/common_styles.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfilePage extends StatefulWidget {
   ProfilePage({Key key}) : super(key: key);
@@ -11,10 +14,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  Future<bool> _onWillPop() {
-    Navigator.of(context).pushReplacementNamed('/workshop');
-    return Future.value(false);
-  }
+  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
   @override
   Widget build(BuildContext context) {
@@ -76,12 +76,14 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             Container(
               alignment: Alignment.center,
-              child: Text(defaultUser.nickname,style: TextStyle(fontSize: 20),),
+              child: Text(
+                defaultUser.nickname,
+                style: TextStyle(fontSize: 20),
+              ),
             ),
-
             Expanded(
               flex: 1,
-                          child: Container(
+              child: Container(
                 alignment: Alignment.centerLeft,
                 child: Padding(
                   padding: EdgeInsets.all(16.0),
@@ -110,16 +112,15 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                   Padding(
-                    padding: const EdgeInsets.only(left: 60.0, right: 60.0,bottom: 32.0),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 60.0, right: 60.0, bottom: 32.0),
                     child: Material(
                       elevation: 3,
                       borderRadius: BorderRadius.circular(32.0),
                       color: Colors.white,
                       child: MaterialButton(
-                        onPressed: () {
-                          exit(0);
-                        },
+                        onPressed: _logou,
                         minWidth: MediaQuery.of(context).size.width,
                         child: Text(
                           '退出',
@@ -135,5 +136,21 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
       ),
     );
+  }
+
+  Future<bool> _onWillPop() {
+    Navigator.of(context).pushReplacementNamed('/workshop');
+    return Future.value(false);
+  }
+
+  void _logou() async {
+    var prefs = await _prefs;
+    prefs.remove(prefsUser);
+    if(Platform.isIOS) {
+      Navigator.pushReplacementNamed(context, '/');
+    } else {
+      await SystemChannels.platform.invokeMethod<void>('SystemNavigator.pop');
+
+    }
   }
 }

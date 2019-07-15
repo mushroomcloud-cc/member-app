@@ -29,6 +29,10 @@ dependencies:
   dio: ^2.1.13
   provider: ^3.0.0+1
   qrcode_reader: ^0.4.4
+  fluttertoast: ^3.1.0
+  flutter_spinkit: "^3.1.0"
+  after_layout: ^1.0.7+2
+
 
 dev_dependencies:
   flutter_test:

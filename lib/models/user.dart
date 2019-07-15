@@ -3,6 +3,24 @@ class User {
   String nickname;
   String avatar;
   String token;
+  String username;
+  String password;
+
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      nickname: json['nickname']??json['username'],
+      avatar: json['nickname'],
+      token: json['token']
+    );
+  }
+  Map toJson() {
+    return {
+      'username': username,
+      'nickname': nickname,
+      'avatar': avatar,
+      'token': token
+    };
+  }
 }
 
 final defaultUser = User(
