@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:member_app/models/user.dart';
 
 import 'package:member_app/models/workshop.dart';
-
 
 class WorkshopPage extends StatefulWidget {
   WorkshopPage({Key key}) : super(key: key);
@@ -53,10 +53,16 @@ class _WorkshopPageState extends State<WorkshopPage> {
             Padding(
               padding: EdgeInsets.only(right: 16),
               child: IconButton(
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/profile');
-                  },
-                  icon: Icon(Icons.person, color: Colors.grey)),
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/profile');
+                },
+                icon: Hero(
+                  tag: 'user-avatar',
+                  child: CircleAvatar(
+                    backgroundImage:AssetImage(defaultUser.avatar),
+                  ),
+                ),
+              ),
             )
           ],
         ),
