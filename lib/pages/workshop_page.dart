@@ -1,8 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:member_app/models/user.dart';
+import 'package:qrcode_reader/qrcode_reader.dart';
 
+import 'package:member_app/models/user.dart';
 import 'package:member_app/models/workshop.dart';
 
 class WorkshopPage extends StatefulWidget {
@@ -105,9 +106,7 @@ class _WorkshopPageState extends State<WorkshopPage> {
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.white,
-          onPressed: () {
-            print('scanning');
-          },
+          onPressed: _qrcodeScan,
           child: Icon(
             Icons.crop_free,
             color: Colors.grey,
@@ -122,5 +121,17 @@ class _WorkshopPageState extends State<WorkshopPage> {
         ),
       ),
     );
+  }
+
+  void _qrcodeScan() async {
+    String qrcodeResult = await new QRCodeReader()
+               .setAutoFocusIntervalInMs(200) // default 5000
+               .setForceAutoFocus(true) // default false
+               .setTorchEnabled(true) // default false
+               .setHandlePermissions(true) // default true
+               .setExecuteAfterPermissionGranted(true) // default true
+               //.setFrontCamera(false) // default false
+               .scan();
+    print('scan result:${qrcodeResult}');
   }
 }

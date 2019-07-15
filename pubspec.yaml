@@ -26,6 +26,9 @@ dependencies:
   flutter_launcher_icons: ^0.7.2+1
   shared_preferences: ^0.5.3+2
   cached_network_image: ^1.1.0
+  dio: ^2.1.13
+  provider: ^3.0.0+1
+  qrcode_reader: ^0.4.4
 
 dev_dependencies:
   flutter_test:
