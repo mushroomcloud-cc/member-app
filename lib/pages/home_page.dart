@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:member_app/constants/app_constants.dart';
 import 'package:member_app/models/user.dart';
+import 'package:member_app/states/user_model.dart';
 import 'package:member_app/styles/common_styles.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,9 +19,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with AfterLayoutMixin<HomePage> {
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   bool _loading = true;
+  
 
   @override
   Widget build(BuildContext context) {
+   
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -118,8 +122,11 @@ class _HomePageState extends State<HomePage> with AfterLayoutMixin<HomePage> {
       var jsonStr = jsonEncode(_user);
       print('saved user: $jsonStr');
       if (_user != null) {
+        
         // TODO: valid token from server
         // TODO: update provider
+        var userModel = Provider.of<UserModel>(context);
+        userModel.setUser(_user);
 
         Navigator.pushNamed(context, '/workshop');
         return;

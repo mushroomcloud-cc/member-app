@@ -3,8 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:member_app/constants/app_constants.dart';
-import 'package:member_app/models/user.dart';
+import 'package:member_app/states/user_model.dart';
 import 'package:member_app/styles/common_styles.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -18,6 +19,8 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    var userModel = Provider.of<UserModel>(context);
+
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
@@ -67,7 +70,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: CircleAvatar(
                         radius: 75,
                         backgroundColor: Colors.green,
-                        backgroundImage: AssetImage(defaultUser.avatar),
+                        backgroundImage: AssetImage(userModel.user.avatar),
                       ),
                     ),
                   ),
@@ -77,7 +80,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Container(
               alignment: Alignment.center,
               child: Text(
-                defaultUser.nickname,
+                userModel.user.nickname,
                 style: TextStyle(fontSize: 20),
               ),
             ),
@@ -93,7 +96,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ListTile(
                         leading: Icon(Icons.local_activity),
                         title: Text('参加活动次数'),
-                        trailing: Text('4'),
+                        trailing: Text(userModel.user.workshopTimes.toString()),
                       ),
                       Divider(),
                       ListTile(

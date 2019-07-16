@@ -6,7 +6,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:member_app/constants/app_constants.dart';
 import 'package:member_app/models/user.dart';
 import 'package:member_app/services/api_service.dart';
+import 'package:member_app/states/user_model.dart';
 import 'package:member_app/styles/common_styles.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
@@ -24,6 +26,9 @@ class _LoginPageState extends State<LoginPage> {
   bool _loading = false;
 
   void _saveUser(User user) async {
+    if (user.avatar == null  || user.avatar.isEmpty) {
+      user.avatar = defaultUser.avatar;
+    }
     var ins = await _prefs;
     ins.setString(prefsUser, jsonEncode(user));
   }
@@ -126,7 +131,9 @@ class _LoginPageState extends State<LoginPage> {
                                   .login(loginUser)
                                   .then((User _user) async {
                                 print('login: ${_user.token}');
-                                await _saveUser(_user);
+                                _saveUser(_user);
+                                var userModel = Provider.of<UserModel>(context);
+                                userModel.setUser(_user);
                                 Navigator.of(context)
                                     .pushReplacementNamed('/workshop');
                               }).catchError((err) {
