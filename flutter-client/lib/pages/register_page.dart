@@ -38,7 +38,11 @@ class _RegisterPageState extends State<RegisterPage> {
                     "用户注册",
                     style: TextStyle(letterSpacing: 8.0),
                   ),
-                )
+                ),
+                 FlatButton(
+                  child: Text("确认"),
+                  onPressed: ()=>{},
+                ),
               ],
             )
           ],
