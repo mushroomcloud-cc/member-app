@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:member_app/models/user.dart';
 import 'package:member_app/pages/home_page.dart';
 import 'package:member_app/pages/login_page.dart';
+import 'package:member_app/pages/profile_edit_page.dart';
 import 'package:member_app/pages/profile_page.dart';
 import 'package:member_app/pages/register_page.dart';
 import 'package:member_app/pages/workshop_detail_page.dart';
@@ -32,6 +33,7 @@ class MemberApp extends StatelessWidget {
           '/login': (context) => LoginPage(),
           '/register': (context) => RegisterPage(),
           '/profile': (context) => ProfilePage(),
+          '/profile_edit': (context) => ProfileEditPage(),
           '/workshop': (context) => WorkshopPage(),
           '/workshtop_detail': (context) => WorkshopDetailPage()
         },
