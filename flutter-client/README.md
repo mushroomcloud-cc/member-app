@@ -1,10 +1,5 @@
 # 蘑菇云创客空间会员 APP
 
-## 子项目
-- [App 客户端](./flutter-client/README.md)
-- [服务端程序](./node-server/README.md)
-- [Iot 开关](./iot-switcher/README.md)
-
 ## 测试账户
 - 用户名: admin 
 - 密码:   12345
@@ -55,17 +50,17 @@
 
 - HomePage
   
-  <img src="flutter-client/screenshots/home_page.png" width="200">
+  <img src="screenshots/home_page.png" width="200">
 - LoginPage
   
-  <img src="flutter-client/screenshots/login_page.png" width="200">
+  <img src="screenshots/login_page.png" width="200">
 
 - WorkshopPage
   
-  <img src="flutter-client/screenshots/workshop_page.jpg" width="200">
+  <img src="screenshots/workshop_page.jpg" width="200">
 - ProfilePage
   
-  <img src="flutter-client/screenshots/profile_page.png" width="200">
+  <img src="screenshots/profile_page.png" width="200">
 ## 协作开发
 
 - fork https://github.com/mushroomcloud-cc/member-app.git
