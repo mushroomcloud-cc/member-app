@@ -70,3 +70,26 @@
 
 - fork https://github.com/mushroomcloud-cc/member-app.git
 
+## 开发问题
+- Android 打包无法下载依赖
+  - 解决方案一: 使用能访问*国外*服务器的网络
+  - 解决方案二: 使用国内 maven 镜像，这里使用阿里云做为示例代码
+  ```
+  # 修改 flutter 项目下的 android/build.gradle 中的 buildscript 和 allprojects 的 repositories 部分修改如下：
+  repositories {
+        maven {
+          url 'https://maven.aliyun.com/repository/jcenter'
+        }
+        maven {
+          url 'https://maven.aliyun.com/repository/google'
+        }
+        maven {
+          url 'https://maven.aliyun.com/repository/central'
+        }
+        maven {
+          url 'https://maven.aliyun.com/repository/public'
+        }
+  }
+  
+  # 注意修改后的 android/build.gradle 请不要提交代码
+  ```
