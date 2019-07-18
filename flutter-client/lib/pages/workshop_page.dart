@@ -5,6 +5,7 @@ import 'package:qrcode_reader/qrcode_reader.dart';
 
 import 'package:member_app/models/user.dart';
 import 'package:member_app/models/workshop.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class WorkshopPage extends StatefulWidget {
   WorkshopPage({Key key}) : super(key: key);
@@ -74,28 +75,43 @@ class _WorkshopPageState extends State<WorkshopPage> {
               padding: EdgeInsets.only(left: 16, right: 16),
               children: <Widget>[
                 ...workshopItems.map((Workshop item) {
-                  return Card(
-                    elevation: 5,
-                    margin: const EdgeInsets.only(top: 8.0),
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          child: CachedNetworkImage(
-                            imageUrl: item.cover,
-                            placeholder: (context, url) =>
-                                new CircularProgressIndicator(),
-                            errorWidget: (context, url, error) =>
-                                new Icon(Icons.error),
+                  return InkWell(
+                    onTap:  () async {
+                         if (await canLaunch(item.url)) {
+                                            launch(item.url);
+                                          }
+                    },
+                                      child: Card(
+                      
+                      elevation: 5,
+                      margin: const EdgeInsets.only(top: 8.0),
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            child: CachedNetworkImage(
+                              imageUrl: item.cover,
+                              placeholder: (context, url) =>
+                                  new CircularProgressIndicator(),
+                              errorWidget: (context, url, error) =>
+                                  new Icon(Icons.error),
+                            ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: ListTile(
-                            title: Text(item.title),
-                            subtitle: Text(item.description),
-                          ),
-                        )
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 4.0),
+                            child: ListTile(
+                                title: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text(item.title),
+                                    if (item.url.isNotEmpty)
+                                      Icon(Icons.send,color: Colors.grey,),
+                                  ],
+                                ),
+                                subtitle: Text(item.description)),
+                          )
+                        ],
+                      ),
                     ),
                   );
                 }).toList(),
